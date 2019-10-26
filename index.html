@@ -6,7 +6,56 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <img src="https://picsum.photos/200" alt="random picture">
+    <div id="big_title">
+      <h1>Creativity Booster</h1>
+    </div>
+
+
+    <div id="part1">
+      <div id="instructions">
+        <p> Hello there, try to find and type some similarities between the random items below</p>
+      </div>
+      <div id="begin_button">Begin</div>
+    </div>
+
+    <div id="part2">
+      <div id="instructions">
+        <p> Hello there, try to find and type some similarities between the random items below</p>
+      </div>
+      <div id="random_container">
+        <div class="random_block"></div>
+        <div class="random_block"></div>
+      </div>
+      <div id="user_input">
+        <input type="text"/>
+      </div>
+    </div>
+
+    <div id="part3">
+      <div id="result">
+        This is what you typed:
+        <div id="user_result"></div>
+      </div>
+      <div id="result_explain"></div>
+    </div>
+
+    <template id="picture">
+      <div class="random_picture">
+        <img src="https://picsum.photos/200" alt="random picture"/>
+      </div>
+    </template>
+    <template id="user">
+      <div class="random_user">
+        <img/>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+    </template>
+    <template id="text">
+      <div class="random_text"></div>
+    </template>
+
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
