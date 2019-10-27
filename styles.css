@@ -13,7 +13,17 @@ html, body {
   font-family: 'Chakra Petch', sans-serif;
 }
 
-#part1 {
+input[type="text"] {
+  /* height: 10px; */
+  width: 80px;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+}
+
+#part2 {
   display: none;
 }
 #part3 {
@@ -27,12 +37,12 @@ html, body {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   font-size: 30px;
-  height: 2.5em;
+  /* height: 2.5em; */
 }
 
 .description {
   text-align: center;
-  height: 3em;
+  /* height: 3em; */
   font-size: 25px;
   color: black;
 }
@@ -56,13 +66,28 @@ html, body {
 
 #user_input{
   text-align: center;
-  height: 3em;
+  /* height: 3em; */
 
 }
 
-input[type="text"] {
-height: 10px;
-width: 80px;
+#random_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.random_block {
+  width: 50%;
+  text-align: center;
+  margin: 0 10%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px grey;
+  padding: 10px;
+}
+
+.random_block .random_user img {
+  border-radius: 50%;
 }
 
 @font-face {
