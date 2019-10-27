@@ -13,6 +13,13 @@ html, body {
   font-family: 'Chakra Petch', sans-serif;
 }
 
+#part1 {
+  display: none;
+}
+#part3 {
+  display: none;
+}
+
 #big_title {
   text-align: center;
   color: white;
@@ -20,30 +27,44 @@ html, body {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   font-size: 30px;
+  height: 2.5em;
 }
 
 #instructions {
   text-align: center;
   font:'Chakra Petch';
-  font-size: 20px;
+  height: 3em;
+  font-size: 25px;
   color: black;
 
 }
 
 #begin_button {
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   border-radius: 10px;
-  background-color: #fff;
-  color: var(--mypurple);
+  background-color: var(--mypurple);
+  color: #fff;
   padding: 10px;
-  width: 3em;
+  width: 4em;
   margin: 0 auto;
   transition: all 1s;
 }
 
 #begin_button:hover {
-  color: var(--mygreen);
+  background-color: var(--mygreen);
+  cursor: pointer;
+}
+
+#user_input{
+  text-align: center;
+  height: 3em;
+
+}
+
+input[type="text"] {
+height: 10px;
+width: 80px;
 }
 
 @font-face {
