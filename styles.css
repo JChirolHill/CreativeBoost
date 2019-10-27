@@ -14,8 +14,8 @@ html, body {
 }
 
 input[type="text"] {
-  /* height: 10px; */
-  width: 80px;
+  width: 500px;
+  margin-top: 30px;
 }
 
 img {
@@ -37,12 +37,10 @@ img {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   font-size: 30px;
-  /* height: 2.5em; */
 }
 
 .description {
   text-align: center;
-  /* height: 3em; */
   font-size: 25px;
   color: black;
 }
@@ -82,13 +80,19 @@ img {
   margin: 0 10%;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px grey;
+  box-shadow: 5px 5px 10px var(--mypurple);
   padding: 10px;
 }
 
 .random_block .random_user img {
   border-radius: 50%;
 }
+
+#result {
+  text-align: center;
+  font-size: 25px;
+}
+
 
 @font-face {
   src: url("RomanSD.ttf");
