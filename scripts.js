@@ -13,7 +13,14 @@ $(document).ready(async function() {
     parseInt(Math.random() * categories.length),
     parseInt(Math.random() * categories.length)
   ];
-  loadRandomBlocks(categories, rands);
+
+  $('#begin_button').click(function() {
+    // hide 1, show 2
+    $('#part1').hide();
+    $('#part2').show();
+
+    loadRandomBlocks(categories, rands);
+  });
 });
 
 function loadRandomBlocks(categories, rands) {
@@ -47,7 +54,6 @@ function getRandomUser(parent) {
     url: 'https://randomuser.me/api/?nat=us,ca,nz,es,fr,gb',
     dataType: 'json',
   }).done(function(results) {
-    // console.log(results);
     let result = results.results[0];
     let address1 = `${result.location.street.number} ${result.location.street.name}`;
     let address2 = `${result.location.city}, ${result.location.state} ${result.location.postcode}`;

@@ -22,12 +22,10 @@ html, body {
   font-size: 30px;
 }
 
-#instructions {
+.description {
   text-align: center;
-  font:'Chakra Petch';
   font-size: 20px;
   color: black;
-
 }
 
 #begin_button {
