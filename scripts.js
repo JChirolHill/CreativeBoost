@@ -3,28 +3,72 @@ const pictureTemplate = Handlebars.compile($('#template_picture').html());
 const textTemplate = Handlebars.compile($('#template_text').html());
 const quoteTemplate = Handlebars.compile($('#template_quote').html());
 
+let categories = ['picture', 'user', 'quote', 'fact'];
+let rands = [];
+
 // variables for quotes api
 let quotes = [];
 let index = 0;
 
-$(document).ready(async function() {
-  let categories = ['picture', 'user', 'quote', 'fact'];
-  let rands = [
-    parseInt(Math.random() * categories.length),
-    parseInt(Math.random() * categories.length)
-  ];
+let inputs = [];
+let numCompleted = 0;
+const TOTAL_QUESTIONS = 2;
 
+$(document).ready(async function() {
+
+  // click begin button
   $('#begin_button').click(function() {
     // hide 1, show 2
     $('#part1').hide();
     $('#part2').show();
 
-    loadRandomBlocks(categories, rands);
+    loadRandomBlocks();
+  });
+
+  // press enter on input
+  $('#input_form').submit(function() {
+    event.preventDefault();
+
+    // fetch value from input
+    let $input = $(this).children('input');
+    let input = $input.val();
+    $input.val('');
+    inputs.push(input);
+
+    numCompleted++;
+    if(numCompleted < TOTAL_QUESTIONS) {
+      // refresh for new pair
+      loadRandomBlocks()
+    }
+    else {
+      loadPart3();
+    }
   });
 });
 
-function loadRandomBlocks(categories, rands) {
-  console.log(rands);
+function loadPart3() {
+  // fill in data
+  $(inputs).each(function(index, input) {
+    $('#user_result').append(`<div>${input}</div>`);
+  });
+
+  // hide 2, show 3
+  $('#part2').hide();
+  $('#part3').show();
+}
+
+function getRandomNumbers() {
+  rands = [
+    parseInt(Math.random() * categories.length),
+    parseInt(Math.random() * categories.length)
+  ];
+  while(rands[0] === rands[1]) {
+    rands[1] = parseInt(Math.random() * categories.length);
+  }
+}
+
+function loadRandomBlocks() {
+  getRandomNumbers();
   $(rands).each(function(index, randNum) {
     if(categories[randNum] === 'picture') {
       getRandomPicture($(`.random_block:nth-child(${index + 1})`));
@@ -45,7 +89,7 @@ function loadRandomBlocks(categories, rands) {
 }
 
 function getRandomPicture(parent) {
-  parent.append(pictureTemplate());
+  parent.html(pictureTemplate({type: 'Image'}));
 }
 
 function getRandomUser(parent) {
@@ -61,6 +105,7 @@ function getRandomUser(parent) {
     let name = `${result.name.first} ${result.name.last}`;
 
     let user = {
+      type: 'Fake User',
       address1,
       address2,
       address3,
@@ -68,7 +113,7 @@ function getRandomUser(parent) {
       thumbnail: result.picture.large
     }
 
-    parent.append(userTemplate(user));
+    parent.html(userTemplate(user));
   }).fail(function(error) {
     console.log('AJAX fail');
   });
@@ -77,9 +122,11 @@ function getRandomUser(parent) {
 function getRandomUselessFact(parent) {
   $.ajax({
     method: 'GET',
-    url: 'https://uselessfacts.jsph.pl/random.json',
+    url: 'https://uselessfacts.jsph.pl/random.json?language=en',
   }).done(function(results) {
-    parent.append(textTemplate({text: results.text}))
+    parent.html(textTemplate({
+      type: 'Useless Fact',
+      text: results.text}))
   }).fail(function(error) {
     console.log('AJAX fail');
   });
@@ -95,7 +142,6 @@ function getRandomQuote(parent) {
       },
     }).done(function(results) {
       $(results.quotes).each(function(index, quoteInfo) {
-        console.log(quoteInfo);
         quotes.push({
           author: quoteInfo.author,
           quote: quoteInfo.body
@@ -103,8 +149,8 @@ function getRandomQuote(parent) {
       });
       index = 0;
 
-      console.log(quotes);
-      parent.append(quoteTemplate({
+      parent.html(quoteTemplate({
+        type: 'Quote',
         quote: quotes[index].quote,
         author: quotes[index].author
       }));
@@ -113,7 +159,7 @@ function getRandomQuote(parent) {
     });
   }
   else {
-    parent.append(textTemplate({
+    parent.html(textTemplate({
       text: quotes[index]
     }));
   }

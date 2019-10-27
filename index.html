@@ -22,14 +22,17 @@
 
     <div id="part2">
       <div class="description">
-        <p>Hello there, try to find and type some similarities between the random items below</p>
+        <!-- <p>Hello there, try to find and type some similarities between the random items below</p> -->
+        <p>Find a similarity the two items share to proceed to the next pair.</p>
+      </div>
+      <div id="user_input">
+        <form id="input_form">
+          <input type="text" placeholder="A similarity..."/>
+        </form>
       </div>
       <div id="random_container">
         <div class="random_block"></div>
         <div class="random_block"></div>
-      </div>
-      <div id="user_input">
-        <input type="text" placeholder="A similarity..."/>
       </div>
     </div>
 
@@ -38,15 +41,17 @@
         Here is what you typed:
         <div id="user_result"></div>
       </div>
-      <div id="result_explain"></div>
+      <div id="result_explanation"></div>
     </div>
 
     <script id="template_picture" type="text/x-handlebars-template">
+      <div class="description">{{type}}</div>
       <div class="random_picture">
         <img src="https://picsum.photos/200" alt="Random picture"/>
       </div>
     </script>
     <script id="template_user" type="text/x-handlebars-template">
+      <div class="description">{{type}}</div>
       <div class="random_user">
         <img src="{{thumbnail}}" alt="{{name}}"/>
         <p>{{name}}</p>
@@ -56,9 +61,11 @@
       </div>
     </script>
     <script id="template_text" type="text/x-handlebars-template">
+      <div class="description">{{type}}</div>
       <div class="random_text">{{text}}</div>
     </script>
     <script id="template_quote" type="text/x-handlebars-template">
+      <div class="description">{{type}}</div>
       <div class="random_quote">
         <p>{{quote}}</p>
         <p>-{{author}}</p>

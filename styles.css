@@ -13,9 +13,20 @@ html, body {
   font-family: 'Chakra Petch', sans-serif;
 }
 
-input[type="text"] {
-  /* height: 10px; */
-  width: 80px;
+input {
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: 0;
+  text-align: center;
+  color: var(--mypurple);
+  font-size: 20px;
+  width: 40%;
+  margin-bottom: 30px;
+}
+
+input:focus {
+  outline: none;
 }
 
 img {
