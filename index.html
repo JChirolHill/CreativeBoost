@@ -10,7 +10,6 @@
       <h1>Creativity Booster</h1>
     </div>
 
-
     <div id="part1">
       <div id="instructions">
         <p> Hello there, try to find and type some similarities between the random items below</p>
@@ -39,29 +38,36 @@
       <div id="result_explain"></div>
     </div>
 
-    <template id="picture">
+    <script id="template_picture" type="text/x-handlebars-template">
       <div class="random_picture">
-        <img src="https://picsum.photos/200" alt="random picture"/>
+        <img src="https://picsum.photos/200" alt="Random picture"/>
       </div>
-    </template>
-    <template id="user">
+    </script>
+    <script id="template_user" type="text/x-handlebars-template">
       <div class="random_user">
-        <img/>
-        <p></p>
-        <p></p>
-        <p></p>
+        <img src="{{thumbnail}}" alt="{{name}}"/>
+        <p>{{name}}</p>
+        <p>{{address1}}</p>
+        <p>{{address2}}</p>
+        <p>{{address3}}</p>
       </div>
-    </template>
-    <template id="text">
-      <div class="random_text"></div>
-    </template>
-
+    </script>
+    <script id="template_text" type="text/x-handlebars-template">
+      <div class="random_text">{{text}}</div>
+    </script>
+    <script id="template_quote" type="text/x-handlebars-template">
+      <div class="random_quote">
+        <p>{{quote}}</p>
+        <p>-{{author}}</p>
+      </div>
+    </script>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous">
     </script>
+    <script src="handlebars-v4.1.2.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>
