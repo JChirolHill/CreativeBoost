@@ -30,13 +30,11 @@ html, body {
   height: 2.5em;
 }
 
-#instructions {
+.description {
   text-align: center;
-  font:'Chakra Petch';
   height: 3em;
   font-size: 25px;
   color: black;
-
 }
 
 #begin_button {
