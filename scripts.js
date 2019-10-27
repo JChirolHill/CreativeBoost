@@ -32,16 +32,18 @@ $(document).ready(async function() {
     // fetch value from input
     let $input = $(this).children('input');
     let input = $input.val();
-    $input.val('');
-    inputs.push(input);
+    if(input !== '') {
+      $input.val('');
+      inputs.push(input);
 
-    numCompleted++;
-    if(numCompleted < TOTAL_QUESTIONS) {
-      // refresh for new pair
-      loadRandomBlocks()
-    }
-    else {
-      loadPart3();
+      numCompleted++;
+      if(numCompleted < TOTAL_QUESTIONS) {
+        // refresh for new pair
+        loadRandomBlocks()
+      }
+      else {
+        loadPart3();
+      }
     }
   });
 });
@@ -69,6 +71,7 @@ function getRandomNumbers() {
 
 function loadRandomBlocks() {
   getRandomNumbers();
+  console.log(rands);
   $(rands).each(function(index, randNum) {
     if(categories[randNum] === 'picture') {
       getRandomPicture($(`.random_block:nth-child(${index + 1})`));
@@ -134,6 +137,7 @@ function getRandomUselessFact(parent) {
     }))
   }).fail(function(error) {
     console.log('AJAX fail');
+    console.log(error);
   });
 }
 
@@ -159,14 +163,18 @@ function getRandomQuote(parent) {
         quote: quotes[index].quote,
         author: quotes[index].author
       }));
+      index++;
     }).fail(function(error) {
       console.log('AJAX fail');
     });
   }
   else {
-    parent.html(textTemplate({
-      text: quotes[index]
+    parent.html(quoteTemplate({
+      type: 'Quote',
+      quote: quotes[index].quote,
+      author: quotes[index].author
     }));
+    index++;
   }
 
 }

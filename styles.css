@@ -16,6 +16,7 @@ body {
   font-family: 'Chakra Petch', sans-serif;
   margin: 0 20px;
   font-size: 20px;
+  padding-bottom: 25px;
 }
 
 input {
@@ -127,15 +128,16 @@ h2 {
 }
 
 #user_result {
-  margin-top: 25px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 5px 5px 10px var(--mypurple);
+  border-radius: 10px;
+  width: 60%;
+  margin: 45px auto 0 auto;
+  padding: 10px;
 }
 
 #user_result div {
   margin: 10px;
-  min-width: 20%;
 }
 
 @font-face {
@@ -156,6 +158,22 @@ h2 {
 
   .random_block {
     width: 90%;
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
+  }
+
+  #big_title {
+    font-size: 30px;
+  }
+
+  #big_title span {
+    display: block;
+  }
+
+  .description {
+    width: 90%;
+  }
+
+  #user_result {
+    width: 90%;
   }
 }
