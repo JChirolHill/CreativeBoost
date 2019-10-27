@@ -2,19 +2,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Creativity Booster</title>
+    <title>MindSpring</title>
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="big_title">
-      <h1>Creativity Booster</h1>
+      <h1><a href="index.html">MindSpring</a></h1>
     </div>
 
     <div id="part1">
       <div class="description">
+        <h2>Want to Boost Your Creativity?</h2>
+        <p>Exercising your ability to look at a situation more creatively is much like
+          exercising any other muscle, and a great exercise is finding a similarity
+          between two seemingly unlike things.</p>
         <h2>How to Play</h2>
-        <p>You will be presented with two random items.  Find a similarity they share to proceed to the next pair.</p>
+        <p>You will be presented with two completely random items.  Find a similarity they share to proceed to the next pair.</p>
         <!-- <p>Hello there, try to find and type some similarities between the random items below</p> -->
       </div>
       <div id="begin_button">Begin</div>
@@ -38,21 +42,22 @@
 
     <div id="part3">
       <div id="result">
-        Here is what you typed:
+        <h2>
+          You made it!<br />Here's a summary of all the connections you made:
+        </h2>
         <div id="user_result"></div>
       </div>
-      <div id="result_explanation"></div>
     </div>
 
     <script id="template_picture" type="text/x-handlebars-template">
       <div class="description">{{type}}</div>
-      <div class="random_picture">
-        <img src="https://picsum.photos/200" alt="Random picture"/>
+      <div class="rand_content random_picture">
+        <img src="https://picsum.photos/id/{{id}}/200" alt="Random picture"/>
       </div>
     </script>
     <script id="template_user" type="text/x-handlebars-template">
       <div class="description">{{type}}</div>
-      <div class="random_user">
+      <div class="rand_content random_user">
         <img src="{{thumbnail}}" alt="{{name}}"/>
         <p>{{name}}</p>
         <p>{{address1}}</p>
@@ -62,11 +67,11 @@
     </script>
     <script id="template_text" type="text/x-handlebars-template">
       <div class="description">{{type}}</div>
-      <div class="random_text">{{text}}</div>
+      <div class="rand_content random_text">{{text}}</div>
     </script>
     <script id="template_quote" type="text/x-handlebars-template">
       <div class="description">{{type}}</div>
-      <div class="random_quote">
+      <div class="rand_content random_quote">
         <p>{{quote}}</p>
         <p>-{{author}}</p>
       </div>

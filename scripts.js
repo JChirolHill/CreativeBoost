@@ -12,7 +12,7 @@ let index = 0;
 
 let inputs = [];
 let numCompleted = 0;
-const TOTAL_QUESTIONS = 2;
+const TOTAL_QUESTIONS = 5;
 
 $(document).ready(async function() {
 
@@ -89,7 +89,11 @@ function loadRandomBlocks() {
 }
 
 function getRandomPicture(parent) {
-  parent.html(pictureTemplate({type: 'Image'}));
+  parent.html(pictureTemplate({
+    type: 'Image',
+    id: parseInt(Math.random() * 1085)
+  }));
+
 }
 
 function getRandomUser(parent) {
@@ -126,7 +130,8 @@ function getRandomUselessFact(parent) {
   }).done(function(results) {
     parent.html(textTemplate({
       type: 'Useless Fact',
-      text: results.text}))
+      text: results.text
+    }))
   }).fail(function(error) {
     console.log('AJAX fail');
   });
