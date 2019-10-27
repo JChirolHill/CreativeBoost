@@ -1,0 +1,52 @@
+:root {
+  --bg: #BED1E8;
+  --main: #D9DBBC;
+  --main1: #CFA5B4;
+  --mypurple: #B2ABBF;
+  --mygreen: #ACBDBA;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  font-family: 'Chakra Petch', sans-serif;
+}
+
+#big_title {
+  text-align: center;
+  color: white;
+  font-family: "Roman";
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  font-size: 30px;
+}
+
+#instructions {
+  text-align: center;
+  font:'Chakra Petch';
+  font-size: 20px;
+  color: black;
+
+}
+
+#begin_button {
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--mypurple);
+  padding: 10px;
+  width: 3em;
+  margin: 0 auto;
+  transition: all 1s;
+}
+
+#begin_button:hover {
+  color: var(--mygreen);
+}
+
+@font-face {
+  src: url("RomanSD.ttf");
+  font-family: "Roman";
+}
